@@ -1,0 +1,64 @@
+var a2;
+var temp = temp || 0;
+var newtemp;
+var time = new Date();
+time = time.getSeconds(); 
+ 
+var result = result || 0; 
+var msg; 
+var date = new Date();
+ 
+var index = index || 0; 
+ 
+var drinktime;
+ 
+a2 = cpf.get("socket a2"); 
+ 
+if(a2 < 100 || a2 == 0)  { 
+  //喝水中
+  drinktime = Date.now();
+  newtemp = temp;
+  cpf.set("socket d2", 1);
+}else  {
+  //沒喝水時
+  cpf.set("socket d2", 0);
+ 
+  if(Date.now() - drinktime > 10000) {
+    if(newtemp - a2 > 20) {
+      result = Math.round(  (  (newtemp - a2) / 400 ) * 100);
+      msg = "You have already drank " + result + "% of the cup\n" + date;
+      ui.set("content", msg);
+      //雲端上傳 
+      index += 1;     
+      var json = {"result": result,  "date": date};
+      var str = JSON.stringify(json);
+      var storeId = "store" + index;
+      aop.setStore("storeId", str);
+     }     
+     newtemp = a2;
+   }
+ 
+    if(time % 1 == 0 || time == 0) {
+       temp = a2;
+    }
+ }
+ 
+   if(Date.now() - drinktime > 3600000) {
+     cpf.set("socket d5", 261, 500);
+     cpf.set("socket d5", 261, 500);
+     cpf.set("socket d5", 392, 500);
+     cpf.set("socket d5", 392, 500);
+     cpf.set("socket d5", 440, 500);
+     cpf.set("socket d5", 440, 500);
+     cpf.set("socket d5", 392, 500);
+     cpf.set("socket d5", 349, 500);
+     cpf.set("socket d5", 349, 500);
+     cpf.set("socket d5", 329, 500);
+     cpf.set("socket d5", 329, 500);
+     cpf.set("socket d5", 293, 500);
+     cpf.set("socket d5", 293, 500);
+     cpf.set("socket d5", 261, 500);
+     drinktime = Date.now();
+   }
+ 
+cpf.repeat();
