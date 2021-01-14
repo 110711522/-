@@ -1,0 +1,301 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="initializes_setup" id="1" x="38" y="38">
+    <next>
+      <block type="initializes_loop" id="2">
+        <statement name="CONTENT">
+          <block type="linkit_wifi_wait_until_ready" id="646" inline="false">
+            <value name="SSID">
+              <block type="text" id="647">
+                <field name="TEXT">Adloe</field>
+              </block>
+            </value>
+            <value name="PASSWORD">
+              <block type="text" id="648">
+                <field name="TEXT">6612823321</field>
+              </block>
+            </value>
+            <next>
+              <block type="things_get_url" id="2768" inline="false">
+                <value name="KEY">
+                  <block type="text" id="2769">
+                    <field name="TEXT">yourkey</field>
+                  </block>
+                </value>
+                <value name="FIELD1">
+                  <block type="math_number" id="2770">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD2">
+                  <block type="math_number" id="2771">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD3">
+                  <block type="math_number" id="2772">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD4">
+                  <block type="math_number" id="2773">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD5">
+                  <block type="math_number" id="2774">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD6">
+                  <block type="math_number" id="2775">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD7">
+                  <block type="math_number" id="2776">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="FIELD8">
+                  <block type="math_number" id="2777">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="341" inline="false">
+                    <mutation elseif="1" else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="3380" inline="true">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <block type="inout_analog_read" id="3540">
+                            <field name="PIN">A0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="3531">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="ez_start_kit_led" id="1901" inline="true">
+                        <field name="EZ_LED">red</field>
+                        <value name="LVALUE">
+                          <block type="math_number" id="1902">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="ez_start_kit_oled_display_draw_commands" id="1469">
+                            <statement name="DRAW_CMD">
+                              <block type="oled_display_draw_text" id="1470" inline="true">
+                                <value name="START_X">
+                                  <block type="math_number" id="1471">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="START_Y">
+                                  <block type="math_number" id="1472">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="CONTENT">
+                                  <block type="text" id="1473">
+                                    <field name="TEXT">喝水量嚴重不足</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="oled_display_draw_line" id="1474" inline="true">
+                                    <value name="START_X">
+                                      <block type="math_number" id="1475">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="START_Y">
+                                      <block type="math_number" id="1476">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_X">
+                                      <block type="math_number" id="1477">
+                                        <field name="NUM">30</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_Y">
+                                      <block type="math_number" id="1478">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="ez_start_kit_tone" id="1422">
+                                <field name="FREQ">494</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="3541" inline="true">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <block type="inout_analog_read" id="3542">
+                            <field name="PIN">A0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="3543">
+                            <field name="NUM">30</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="ez_start_kit_led" id="1983" inline="true">
+                        <field name="EZ_LED">yellow</field>
+                        <value name="LVALUE">
+                          <block type="math_number" id="1984">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="ez_start_kit_oled_display_draw_commands" id="1985">
+                            <statement name="DRAW_CMD">
+                              <block type="oled_display_draw_text" id="1986" inline="true">
+                                <value name="START_X">
+                                  <block type="math_number" id="1987">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="START_Y">
+                                  <block type="math_number" id="1988">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="CONTENT">
+                                  <block type="text" id="1989">
+                                    <field name="TEXT">喝水量不足</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="oled_display_draw_line" id="1990" inline="true">
+                                    <value name="START_X">
+                                      <block type="math_number" id="1991">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="START_Y">
+                                      <block type="math_number" id="1992">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_X">
+                                      <block type="math_number" id="1993">
+                                        <field name="NUM">30</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_Y">
+                                      <block type="math_number" id="1994">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="ez_start_kit_tone" id="1995">
+                                <field name="FREQ">349</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="ez_start_kit_led" id="1996" inline="true">
+                        <field name="EZ_LED">green</field>
+                        <value name="LVALUE">
+                          <block type="math_number" id="1997">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="ez_start_kit_oled_display_draw_commands" id="1998">
+                            <statement name="DRAW_CMD">
+                              <block type="oled_display_draw_text" id="1999" inline="true">
+                                <value name="START_X">
+                                  <block type="math_number" id="2000">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="START_Y">
+                                  <block type="math_number" id="2001">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="CONTENT">
+                                  <block type="text" id="2002">
+                                    <field name="TEXT">喝水量充足</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="oled_display_draw_line" id="2003" inline="true">
+                                    <value name="START_X">
+                                      <block type="math_number" id="2004">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="START_Y">
+                                      <block type="math_number" id="2005">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_X">
+                                      <block type="math_number" id="2006">
+                                        <field name="NUM">30</field>
+                                      </block>
+                                    </value>
+                                    <value name="END_Y">
+                                      <block type="math_number" id="2007">
+                                        <field name="NUM">11</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="ez_start_kit_tone" id="2008">
+                                <field name="FREQ">262</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="delay_custom" id="3100" inline="false">
+                        <value name="DELAY_TIME">
+                          <block type="math_number" id="3101">
+                            <field name="NUM">60000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
